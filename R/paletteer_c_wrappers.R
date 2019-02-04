@@ -13,27 +13,38 @@
 #' @rdname paleteer-c-wrapper
 paletteer_c_ggthemes <- function(name, n) {
 
-  ggthemes_c_seq_names <- c("Red", "Green", "Blue", "Orange", "Gray",
-                            "Red Light", "Green Light", "Blue Light",
-                            "Orange Light", "Area Red" , "Area Green",
-                            "Area Brown", "Blue-Green Sequential",
-                            "Brown Sequential", "Purple Sequential",
-                            "Grey Sequential")
+  ggthemes_c_seq_names <- c("Blue-Green Sequential", "Blue Light", "Orange Light", "Blue", "Orange",
+                            "Green", "Red", "Purple", "Brown", "Gray", "Gray Warm", "Blue-Teal",
+                            "Orange-Gold", "Green-Gold", "Red-Gold", "Classic Green", "Classic Gray",
+                            "Classic Blue", "Classic Red", "Classic Orange", "Classic Area Red",
+                            "Classic Area Green", "Classic Area-Brown")
 
-  ggthemes_c_div_names <- c("Red-Blue", "Red-Green", "Red-White-Green",
-                            "Red-Black", "Red-White-Black","Green-Blue",
-                            "Orange-Blue", "Orange-White-Blue",
-                            "Red-Green Light", "Red-White-Green Light",
-                            "Red-White-Black Light", "Orange-Blue Light",
-                            "Orange-White-Blue Light", "Orange-Blue",
-                            "Light Red-Green", "Temperature")
+  ggthemes_c_div_names <- c("Orange-Blue Diverging", "Red-Green Diverging", "Green-Blue Diverging",
+                            "Red-Blue Diverging", "Red-Black Diverging", "Gold-Purple Diverging",
+                            "Red-Green-Gold Diverging", "Sunset-Sunrise Diverging", "Orange-Blue-White Diverging",
+                            "Red-Green-White Diverging", "Green-Blue-White Diverging", "Red-Blue-White Diverging",
+                            "Red-Black-White Diverging", "Orange-Blue Light Diverging", "Temperature Diverging",
+                            "Classic Red-Green", "Classic Red-Blue", "Classic Red-Black", "Classic Area Red-Green",
+                            "Classic Orange-Blue", "Classic Green-Blue", "Classic Red-White-Green",
+                            "Classic Red-White-Black", "Classic Orange-White-Blue", "Classic Red-White-Black Light",
+                            "Classic Orange-White-Blue Light", "Classic Red-White-Green Light",
+                            "Classic Red-Green Light")
 
-  name <- match.arg(name, c(ggthemes_c_seq_names, ggthemes_c_div_names))
+  name <- try(match.arg(name, c(ggthemes_c_seq_names, ggthemes_c_div_names)), silent = T)
+
+  if (class(name) == 'try-error') {
+    ggthemes_list <- paste(c(ggthemes_c_seq_names,
+                             ggthemes_c_div_names),
+                           collapse = '\n')
+    stop(sprintf('Error in match.arg, "arg" should be one of: \n%s',
+                 ggthemes_list))
+
+  }
 
   if (name %in% ggthemes_c_seq_names) {
     pal_gen <- ggthemes::tableau_seq_gradient_pal(palette = name)
   } else {
-    type <- ggthemes::tableau_div_gradient_pal(palette = name)
+    pal_gen <- ggthemes::tableau_div_gradient_pal(palette = name)
   }
 
   pal_gen(x = seq(0, 1, length.out = n))
@@ -79,16 +90,28 @@ paletteer_c_viridis <- function(name, n) {
   pal_gen(n = n)
 }
 
+#' @rdname paleteer-c-wrapper
+paletteer_c_harrypotter <- function(name, n) {
+  harrypotter::hp(n = n, option = name)
+}
+
+#' @rdname paleteer-c-wrapper
+paletteer_c_gameofthrones <- function(name, n) {
+  gameofthrones::got(n = n, option = name)
+}
+
 #' List of all wrapper functions used in paletteer_c
 #'
 #' @format Named list of all wrapper functions
 "wrapper_c"
 wrapper_c <- list(
-  ggthemes = paletteer_c_ggthemes,
-  grDevices = paletteer_c_grDevices,
-  oompaBase = paletteer_c_oompaBase,
-  palr = paletteer_c_palr,
-  pals = paletteer_c_pals,
-  scico = paletteer_c_scico,
-  viridis = paletteer_c_viridis
+  gameofthrones = paletteer_c_gameofthrones,
+  ggthemes      = paletteer_c_ggthemes,
+  grDevices     = paletteer_c_grDevices,
+  harrypotter   = paletteer_c_harrypotter,
+  oompaBase     = paletteer_c_oompaBase,
+  palr          = paletteer_c_palr,
+  pals          = paletteer_c_pals,
+  scico         = paletteer_c_scico,
+  viridis       = paletteer_c_viridis
 )
