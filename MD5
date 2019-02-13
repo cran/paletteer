@@ -1,8 +1,8 @@
-3afa2726109c7171af2e56355d9468de *DESCRIPTION
+752dbc3166052978391aaa3b5c775ef5 *DESCRIPTION
 74040c81de95824db69243ba2eabfc2d *LICENSE.note
 e5018084a19edcaea19c7658997d0308 *NAMESPACE
-6a9f0bfbd9393606518ff5e62da3ff3c *NEWS.md
-d47f80d368e7f04b72c72156df186517 *R/data.R
+0e53db7174947fbc569c118891b02685 *NEWS.md
+d9dae4ab130eab14f2a73b40097aeee5 *R/data.R
 c9029899ca2cdb03e5584d8375ec7072 *R/ggplot2_scales_continuous.R
 cf40860b9d65104bad7f30568e9599f5 *R/ggplot2_scales_discrete.R
 b4fe12876c37f8a22cde06e9701eecf0 *R/paletteer-package.R
@@ -10,12 +10,12 @@ b4fe12876c37f8a22cde06e9701eecf0 *R/paletteer-package.R
 3b38790fad831329bbf8c4b63d3f60cb *R/paletteer_c_wrappers.R
 5369050d35b2a5d1350beeab24546e5b *R/paletteer_d.R
 f74bdb71593bccf7c0ec8c24b6a35d8f *R/paletteer_dynamic.R
-665ecf5f2ea23bc449eedc3c28d65316 *README.md
-4720ffee512cae279947167ed3ad7894 *data/palettes_c_names.rda
-84d65478f8dd1e1a79901a9766c75199 *data/palettes_d.rda
-cd8010f55b6389cd5af61a780ee7e464 *data/palettes_d_names.rda
-b6910fb33377b5463c06fe3d45fa8aa6 *data/palettes_dynamic.rda
-a41d4f95aff83894750eafcc66ae9f71 *data/palettes_dynamic_names.rda
+2b55b6d9ee33c2144352ca6cd67664c0 *README.md
+38b99e1bdf2b475034f9f92dcee1803b *data/palettes_c_names.rda
+c94626bd3d25e80dbf8deb184142918e *data/palettes_d.rda
+23fa19e3a196c735486c61ad380648f2 *data/palettes_d_names.rda
+85ec89a074abb1a94cb85a5a9c5fb130 *data/palettes_dynamic.rda
+c5f2a80ba5cb139c0da58ace0b60f649 *data/palettes_dynamic_names.rda
 8836b2ced5df051af8f491ff6bfc6121 *inst/AUTHORS
 052aa8012eb82070eb3fb86df18af87e *man/figures/README-unnamed-chunk-2-1.png
 e7ee5bdd9b971595972ca4bbd2c8d95e *man/figures/README-unnamed-chunk-3-1.png
@@ -31,7 +31,7 @@ a020c1ae8783cb69c275dc6bd1cca9e4 *man/paletteer_d.Rd
 59e07b3c1bbedf42136d5ed79240da31 *man/paletteer_dynamic.Rd
 4c9dd1070c436c17043214506478c137 *man/palettes_c_names.Rd
 5d31e74643aa37841c01ed6512edcbc2 *man/palettes_d.Rd
-773575e45d92e4bc4d0db02eb8a7cc70 *man/palettes_d_names.Rd
+bb741504647b90ebb67778a08925dd23 *man/palettes_d_names.Rd
 93094ab1e73d202afdcd8d9a30bf558f *man/palettes_dynamic.Rd
 f13be730c5dbee439bc74375eed3a8a1 *man/palettes_dynamic_names.Rd
 b3bb9546b896305669d29654bc13cb5f *man/wrapper_c.Rd
@@ -40,5 +40,5 @@ b3bb9546b896305669d29654bc13cb5f *man/wrapper_c.Rd
 3444956a67ce1f5d9f2fab78a259e68a *tests/testthat/test-discrete-ggplot2-scales.R
 f410bd918d63f9d6aa55078de468fc79 *tests/testthat/test-paletteer_c-wrappers.R
 e47864ea7fad7d1e9039649c8dd5a1fe *tests/testthat/test-paletteer_c.R
-44ac532cee7298ecd93d049ddc1f6d81 *tests/testthat/test-paletteer_d.R
+5f1d0ac187428a447ccc4878646aa6ab *tests/testthat/test-paletteer_d.R
 b49f546b6329660c45114bcd3c6591c3 *tests/testthat/test-paletteer_dynamic.R
