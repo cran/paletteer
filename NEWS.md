@@ -1,3 +1,8 @@
+# paletteer 1.1.0
+
+* added `scale_color_paletteer_binned()` to support binned scales.
+* 20 palettes have been added from the futurevisions package. (82)
+
 # paletteer 1.0.0
 
 * All front facing functions now take a single `palette` argument of the format `package::palette` instead of the  previous two arguments package and palette.
