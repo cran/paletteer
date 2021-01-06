@@ -1,3 +1,9 @@
+# paletteer 1.3.0
+
+* 14 palettes have been added from the soilpaletttes package. (#95)
+* 20 palettes have been added from the rockthemes package. (#97)
+* 19 palettes have been added from the Manu package. (#98)
+
 # paletteer 1.2.0
 
 * Packages that provide continious color paletttes have been moved from Imports to Suggests. (#93)
