@@ -12,34 +12,42 @@
 #' @name paleteer-c-wrapper
 #' @rdname paleteer-c-wrapper
 paletteer_c_ggthemes <- function(name, n) {
-  check_package("ggthemes")
+  check_installed("ggthemes")
 
-  ggthemes_c_seq_names <- c("Blue-Green Sequential", "Blue Light", "Orange Light", "Blue", "Orange",
-                            "Green", "Red", "Purple", "Brown", "Gray", "Gray Warm", "Blue-Teal",
-                            "Orange-Gold", "Green-Gold", "Red-Gold", "Classic Green", "Classic Gray",
-                            "Classic Blue", "Classic Red", "Classic Orange", "Classic Area Red",
-                            "Classic Area Green", "Classic Area-Brown")
+  ggthemes_c_seq_names <- c(
+    "Blue-Green Sequential", "Blue Light", "Orange Light", "Blue", "Orange",
+    "Green", "Red", "Purple", "Brown", "Gray", "Gray Warm", "Blue-Teal",
+    "Orange-Gold", "Green-Gold", "Red-Gold", "Classic Green", "Classic Gray",
+    "Classic Blue", "Classic Red", "Classic Orange", "Classic Area Red",
+    "Classic Area Green", "Classic Area-Brown"
+  )
 
-  ggthemes_c_div_names <- c("Orange-Blue Diverging", "Red-Green Diverging", "Green-Blue Diverging",
-                            "Red-Blue Diverging", "Red-Black Diverging", "Gold-Purple Diverging",
-                            "Red-Green-Gold Diverging", "Sunset-Sunrise Diverging", "Orange-Blue-White Diverging",
-                            "Red-Green-White Diverging", "Green-Blue-White Diverging", "Red-Blue-White Diverging",
-                            "Red-Black-White Diverging", "Orange-Blue Light Diverging", "Temperature Diverging",
-                            "Classic Red-Green", "Classic Red-Blue", "Classic Red-Black", "Classic Area Red-Green",
-                            "Classic Orange-Blue", "Classic Green-Blue", "Classic Red-White-Green",
-                            "Classic Red-White-Black", "Classic Orange-White-Blue", "Classic Red-White-Black Light",
-                            "Classic Orange-White-Blue Light", "Classic Red-White-Green Light",
-                            "Classic Red-Green Light")
+  ggthemes_c_div_names <- c(
+    "Orange-Blue Diverging", "Red-Green Diverging", "Green-Blue Diverging",
+    "Red-Blue Diverging", "Red-Black Diverging", "Gold-Purple Diverging",
+    "Red-Green-Gold Diverging", "Sunset-Sunrise Diverging", "Orange-Blue-White Diverging",
+    "Red-Green-White Diverging", "Green-Blue-White Diverging", "Red-Blue-White Diverging",
+    "Red-Black-White Diverging", "Orange-Blue Light Diverging", "Temperature Diverging",
+    "Classic Red-Green", "Classic Red-Blue", "Classic Red-Black", "Classic Area Red-Green",
+    "Classic Orange-Blue", "Classic Green-Blue", "Classic Red-White-Green",
+    "Classic Red-White-Black", "Classic Orange-White-Blue", "Classic Red-White-Black Light",
+    "Classic Orange-White-Blue Light", "Classic Red-White-Green Light",
+    "Classic Red-Green Light"
+  )
 
   name <- try(match.arg(name, c(ggthemes_c_seq_names, ggthemes_c_div_names)), silent = T)
 
-  if (class(name) == 'try-error') {
-    ggthemes_list <- paste(c(ggthemes_c_seq_names,
-                             ggthemes_c_div_names),
-                           collapse = '\n')
-    stop(sprintf('Error in match.arg, "arg" should be one of: \n%s',
-                 ggthemes_list))
-
+  if (class(name) == "try-error") {
+    ggthemes_list <- paste(c(
+      ggthemes_c_seq_names,
+      ggthemes_c_div_names
+    ),
+    collapse = "\n"
+    )
+    stop(sprintf(
+      'Error in match.arg, "arg" should be one of: \n%s',
+      ggthemes_list
+    ))
   }
 
   if (name %in% ggthemes_c_seq_names) {
@@ -53,8 +61,10 @@ paletteer_c_ggthemes <- function(name, n) {
 
 #' @rdname paleteer-c-wrapper
 paletteer_c_grDevices <- function(name, n) {
-  if (name %in% c("rainbow", "heat.colors", "terrain.colors",
-                  "topo.colors", "cm.colors")) {
+  if (name %in% c(
+    "rainbow", "heat.colors", "terrain.colors",
+    "topo.colors", "cm.colors"
+  )) {
     pal_gen <- getExportedValue("grDevices", name)
 
     return(pal_gen(n = n))
@@ -68,7 +78,7 @@ paletteer_c_grDevices <- function(name, n) {
 
 #' @rdname paleteer-c-wrapper
 paletteer_c_oompaBase <- function(name, n) {
-  check_package("oompaBase")
+  check_installed("oompaBase")
   pal_gen <- getExportedValue("oompaBase", name)
 
   pal_gen(N = n)
@@ -76,7 +86,7 @@ paletteer_c_oompaBase <- function(name, n) {
 
 #' @rdname paleteer-c-wrapper
 paletteer_c_palr <- function(name, n) {
-  check_package("palr")
+  check_installed("palr")
   pal_gen <- getExportedValue("palr", name)
 
   pal_gen(x = n)
@@ -84,7 +94,7 @@ paletteer_c_palr <- function(name, n) {
 
 #' @rdname paleteer-c-wrapper
 paletteer_c_pals <- function(name, n) {
-  check_package("pals")
+  check_installed("pals")
   pal_gen <- getExportedValue("pals", name)
 
   pal_gen(n = n)
@@ -92,13 +102,13 @@ paletteer_c_pals <- function(name, n) {
 
 #' @rdname paleteer-c-wrapper
 paletteer_c_scico <- function(name, n) {
-  check_package("scico")
+  check_installed("scico")
   scico::scico(n = n, palette = name)
 }
 
 #' @rdname paleteer-c-wrapper
 paletteer_c_viridis <- function(name, n) {
-  check_package("viridisLite")
+  check_installed("viridisLite")
   pal_gen <- getExportedValue("viridisLite", name)
 
   pal_gen(n = n)
@@ -106,13 +116,13 @@ paletteer_c_viridis <- function(name, n) {
 
 #' @rdname paleteer-c-wrapper
 paletteer_c_harrypotter <- function(name, n) {
-  check_package("harrypotter")
+  check_installed("harrypotter")
   harrypotter::hp(n = n, option = name)
 }
 
 #' @rdname paleteer-c-wrapper
 paletteer_c_gameofthrones <- function(name, n) {
-  check_package("gameofthrones")
+  check_installed("gameofthrones")
   gameofthrones::got(n = n, option = name)
 }
 

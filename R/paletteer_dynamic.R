@@ -12,26 +12,33 @@
 #' paletteer_dynamic("ggthemes_solarized::green", 8)
 #' paletteer_dynamic("cartography::sand.pal", 20)
 #' @export
-paletteer_dynamic <- function (palette, n, direction = 1) {
-
+paletteer_dynamic <- function(palette, n, direction = 1) {
   if (abs(direction) != 1) {
-    stop("direction must be 1 or -1")
+    abort("direction must be 1 or -1")
   }
+
+  if (missing(n)) {
+    abort("n not found. Please supply the number of colors you want returned.")
+  }
+
+  palette <- try(palette, silent = TRUE)
+  if (inherits(palette, "try-error")) {
+    palette <- attr(palette, "condition")$message
+    palette <- sub("^.*?\"", "", palette)
+    palette <- sub("\".*$", "", palette)
+  }
+
+  check_palette(palette, dym_names)
 
   palette <- unlist(strsplit(palette, "::"))
 
-  if (missing(n)) {
-    stop("n not found. Please supply the number of colors you want returned.")
-  }
-
   pal <- paletteer::palettes_dynamic[[palette]]
-  if (is.null(pal))
-    stop('Palette not found. Make sure both package and palette ',
-         'name are spelled correct in the format "package::palette"')
 
   if (n > length(pal)) {
-    stop(paste("Number of requested colors greater than this palette can offer which is ",
-               length(pal), ".", sep = ""))
+    abort(paste("Number of requested colors greater than this palette can offer which is ",
+      length(pal), ".",
+      sep = ""
+    ))
   }
 
   if (direction == -1) {

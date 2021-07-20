@@ -1,13 +1,13 @@
-check_package <- function(package) {
-  if (!requireNamespace(package, quietly = TRUE)) {
-    rlang::abort(
+#' @importFrom rlang check_installed abort
+NULL
+
+check_palette <- function(palette, names) {
+  if (!(palette %in% names)) {
+    abort(
       paste0(
-        "Package '",
-        package ,
-        "' needed. Please install it by running `install.packages('",
-        package,
-        "')`."
-        )
+        "Palette not found. Make sure both package and palette ",
+        'name are spelled correct in the format "package::palette"'
       )
+    )
   }
 }

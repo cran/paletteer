@@ -1,6 +1,6 @@
 Package: paletteer
 Title: Comprehensive Collection of Color Palettes
-Version: 1.3.0
+Version: 1.4.0
 Author: See AUTHORS file.
 Maintainer: Emil Hvitfeldt <emilhhvitfeldt@gmail.com>
 Description: The choices of color palettes in R can be quite
@@ -19,8 +19,8 @@ Suggests: covr, gameofthrones (>= 1.0.0), ggplot2 (>= 3.3.0), ggthemes
 Copyright: See LICENSE.note file.
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.1.9000
+RoxygenNote: 7.1.1.9001
 NeedsCompilation: no
-Packaged: 2021-01-05 19:59:14 UTC; emilhvitfeldthansen
+Packaged: 2021-07-20 20:11:40 UTC; emilhvitfeldthansen
 Repository: CRAN
-Date/Publication: 2021-01-06 16:00:33 UTC
+Date/Publication: 2021-07-20 21:20:03 UTC
