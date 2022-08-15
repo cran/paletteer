@@ -37,7 +37,7 @@ paletteer_c_ggthemes <- function(name, n) {
 
   name <- try(match.arg(name, c(ggthemes_c_seq_names, ggthemes_c_div_names)), silent = T)
 
-  if (class(name) == "try-error") {
+  if (inherits(name, "try-error")) {
     ggthemes_list <- paste(c(
       ggthemes_c_seq_names,
       ggthemes_c_div_names
@@ -129,7 +129,10 @@ paletteer_c_gameofthrones <- function(name, n) {
 #' List of all wrapper functions used in paletteer_c
 #'
 #' @format Named list of all wrapper functions
-"wrapper_c"
+#' @name wrapper_c
+#' @noRd
+NULL
+
 wrapper_c <- list(
   gameofthrones = paletteer_c_gameofthrones,
   ggthemes      = paletteer_c_ggthemes,
