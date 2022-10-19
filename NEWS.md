@@ -1,3 +1,15 @@
+# paletteer 1.5.0
+
+* Added sky palette from khroma package.
+* Added 31 Steven Universe palettes from tvthemes package.
+* 11 palettes have been added from the feathers package. (#116)
+* 56 palettes have been added from the MetBrewer package. (#119)
+* 7 palettes have been added from the musculusColors package. (#120)
+* 21 palettes have been added from the peRReo package. (#122)
+* 30 palettes have been added from the NatParksPalettes package. (#123)
+* 24 palettes have been added from the impressionist.colors package. (#125)
+* 7 palettes have been added from the severance package. (#127)
+
 # paletteer 1.4.1
 
 * Fixed documentation to be HTML5 friendly.
