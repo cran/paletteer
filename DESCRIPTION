@@ -1,6 +1,6 @@
 Package: paletteer
 Title: Comprehensive Collection of Color Palettes
-Version: 1.5.0
+Version: 1.6.0
 Author: See AUTHORS file.
 Maintainer: Emil Hvitfeldt <emilhhvitfeldt@gmail.com>
 Description: The choices of color palettes in R can be quite
@@ -16,10 +16,11 @@ Suggests: covr, ggplot2 (>= 3.3.0), ggthemes (>= 4.0.0), harrypotter
         (>= 2.1.0), knitr, oompaBase, palr, pals, rmarkdown, scico,
         testthat (>= 2.1.0), vdiffr, viridisLite
 Copyright: See LICENSE.note file.
+Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.2.1.9000
+RoxygenNote: 7.3.0
 NeedsCompilation: no
-Packaged: 2022-10-17 03:01:26 UTC; emilhvitfeldt
+Packaged: 2024-01-21 02:33:27 UTC; emilhvitfeldt
 Repository: CRAN
-Date/Publication: 2022-10-19 10:02:40 UTC
+Date/Publication: 2024-01-21 18:00:02 UTC

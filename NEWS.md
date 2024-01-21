@@ -1,3 +1,13 @@
+# paletteer 1.6.0
+
+* 15 palettes have been added from vangogh package. (#133)
+* 30 palettes have been added from ButterflyColors package. (#136)
+* 35 palettes have been added from MoMAColors package. (#142)
+* 32 palettes have been added from PrettyCols package. (#126)
+* 15 palettes have been added from waRhol package. (#131)
+* 18 palettes have been added from MexBrewer package. (#137)
+* 24 palettes have been added from ltc package. (#140)
+
 # paletteer 1.5.0
 
 * Added sky palette from khroma package.
