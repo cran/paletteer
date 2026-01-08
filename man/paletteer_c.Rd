@@ -4,7 +4,7 @@
 \alias{paletteer_c}
 \title{Get continuous palette by package and name}
 \usage{
-paletteer_c(palette, n, direction = 1)
+paletteer_c(palette, n, direction = 1, call = caller_env(0))
 }
 \arguments{
 \item{palette}{Name of palette as a string. Must be on the form
@@ -13,6 +13,11 @@ packagename::palettename.}
 \item{n}{Number of colors desired. Must be supplied.}
 
 \item{direction}{Either \code{1} or \code{-1}. If \code{-1} the palette will be reversed.}
+
+\item{call}{The execution environment of a currently
+running function, e.g. \code{caller_env()}. The function will be
+mentioned in error messages as the source of the error. See the
+\code{call} argument of \code{\link[rlang:abort]{abort()}} for more information.}
 }
 \value{
 A vector of colors.
@@ -22,7 +27,7 @@ Available package/palette combinations are available in the data.frame
 \code{\link[paletteer]{palettes_c_names}}.
 }
 \examples{
-\dontshow{if (rlang::is_installed("scico")) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (rlang::is_installed("scico")) withAutoprint(\{ # examplesIf}
 paletteer_c("scico::berlin", 100)
 \dontshow{\}) # examplesIf}
 }

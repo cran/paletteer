@@ -13,13 +13,7 @@
 #' paletteer_dynamic("cartography::sand.pal", 20)
 #' @export
 paletteer_dynamic <- function(palette, n, direction = 1) {
-  if (abs(direction) != 1) {
-    abort("`direction` must be 1 or -1.")
-  }
-
-  if (missing(n)) {
-    abort("`n` not found. Please supply the number of colors you want returned.")
-  }
+  check_direction(direction)
 
   palette <- try(palette, silent = TRUE)
   if (inherits(palette, "try-error")) {
@@ -34,12 +28,7 @@ paletteer_dynamic <- function(palette, n, direction = 1) {
 
   pal <- paletteer::palettes_dynamic[[palette]]
 
-  if (n > length(pal)) {
-    abort(paste("Number of requested colors greater than this palette can offer which is ",
-      length(pal), ".",
-      sep = ""
-    ))
-  }
+  check_number_whole(n, min = 0, max = as.double(length(pal)))
 
   if (direction == -1) {
     prismatic::color(rev(pal[[n]]))

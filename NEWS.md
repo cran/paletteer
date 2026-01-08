@@ -1,3 +1,14 @@
+# paletteer 1.7.0
+
+* Updated argument checking to be more precise and uniform. (#174)
+* Add missing scico palettes. (#168)
+* Added new palettes from ButterflyColors, feathers, ggsci, khroma, PrettyCols, and tayloRswift. (#182)
+* 4 palettes have been added from blueycolors package. (#155)
+* 5 palettes have been added from amerika package. (#158)
+* 5 palettes have been added from amerika package. (#158)
+* 15 palettes have been added from Rdune package. (#157)
+* 41 palettes have been added from poisonfrogs package. (#183)
+
 # paletteer 1.6.0
 
 * 15 palettes have been added from vangogh package. (#133)

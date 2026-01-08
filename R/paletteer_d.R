@@ -9,18 +9,22 @@
 #' @param direction Either `1` or `-1`. If `-1` the palette will be reversed.
 #' @param type Either "discrete" or "continuous". Colors are interpolated if
 #'   "continuous" is picked. Defaults to "discrete".
+#' @inheritParams rlang::args_error_context
+#'
 #' @return A vector of colors.
 #' @examples
 #' paletteer_d("nord::frost")
 #' paletteer_d("wesanderson::Royal1", 3)
 #' paletteer_d("Redmonder::dPBIPuOr", 14, type = "continuous")
 #' @export
-paletteer_d <- function(palette, n, direction = 1,
-                        type = c("discrete", "continuous")) {
-  if (abs(direction) != 1) {
-    abort("`direction` must be 1 or -1.")
-  }
-
+paletteer_d <- function(
+  palette,
+  n,
+  direction = 1,
+  type = c("discrete", "continuous"),
+  call = caller_env(0)
+) {
+  check_direction(direction, call = call)
   type <- match.arg(type)
 
   palette <- try(palette, silent = TRUE)
@@ -39,13 +43,12 @@ paletteer_d <- function(palette, n, direction = 1,
   if (missing(n)) {
     n <- length(pal)
   }
-  if (type == "discrete" && n > length(pal)) {
-    abort(paste("Number of requested colors greater than this palette can offer which is ",
-      length(pal), ".",
-      sep = ""
-    ))
+  if (type == "discrete") {
+    check_number_whole(n, min = 1, max = as.double(length(pal)), call = call)
   }
-  out <- switch(type,
+
+  out <- switch(
+    type,
     continuous = (grDevices::colorRampPalette(pal))(n),
     discrete = pal[1:n]
   )
